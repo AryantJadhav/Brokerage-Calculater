@@ -1,5 +1,5 @@
-('D:\\Coding\\Brokerage Calculater\\Brokerage '
- 'Calculater\\build\\BrokerageCalculator\\PYZ-00.pyz',
+('D:\\Coding\\Brokerage '
+ 'Calculater\\App\\build\\BrokerageCalculator\\PYZ-00.pyz',
  [('__future__',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\__future__.py',
    'PYMODULE'),
@@ -34,7 +34,7 @@
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\_threading_local.py',
    'PYMODULE'),
   ('app_meta',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage Calculater\\app_meta.py',
+   'D:\\Coding\\Brokerage Calculater\\App\\app_meta.py',
    'PYMODULE'),
   ('argparse',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\argparse.py',
@@ -52,7 +52,7 @@
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\bz2.py',
    'PYMODULE'),
   ('calculations',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage Calculater\\calculations.py',
+   'D:\\Coding\\Brokerage Calculater\\App\\calculations.py',
    'PYMODULE'),
   ('calendar',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\calendar.py',
@@ -97,196 +97,196 @@
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\ctypes\\wintypes.py',
    'PYMODULE'),
   ('customtkinter',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.ctk_input_dialog',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\ctk_input_dialog.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\ctk_input_dialog.py',
    'PYMODULE'),
   ('customtkinter.windows.ctk_tk',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\ctk_tk.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\ctk_tk.py',
    'PYMODULE'),
   ('customtkinter.windows.ctk_toplevel',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\ctk_toplevel.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\ctk_toplevel.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.appearance_mode',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\appearance_mode\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\appearance_mode\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.appearance_mode.appearance_mode_base_class',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_base_class.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_base_class.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.appearance_mode.appearance_mode_tracker',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_tracker.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\appearance_mode\\appearance_mode_tracker.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_rendering',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_rendering\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_rendering\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_rendering.ctk_canvas',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_rendering\\ctk_canvas.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_rendering\\ctk_canvas.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_rendering.draw_engine',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_rendering\\draw_engine.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_rendering\\draw_engine.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_widget_classes',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_widget_classes\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_widget_classes\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_widget_classes.ctk_base_class',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_widget_classes\\ctk_base_class.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_widget_classes\\ctk_base_class.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.core_widget_classes.dropdown_menu',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_widget_classes\\dropdown_menu.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\core_widget_classes\\dropdown_menu.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_button',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_button.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_button.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_checkbox',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_checkbox.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_checkbox.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_combobox',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_combobox.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_combobox.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_entry',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_entry.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_entry.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_frame',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_frame.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_frame.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_label',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_label.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_label.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_optionmenu',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_optionmenu.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_optionmenu.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_progressbar',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_progressbar.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_progressbar.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_radiobutton',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_radiobutton.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_radiobutton.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_scrollable_frame',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_scrollable_frame.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_scrollable_frame.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_scrollbar',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_scrollbar.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_scrollbar.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_segmented_button',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_segmented_button.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_segmented_button.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_slider',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_slider.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_slider.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_switch',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_switch.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_switch.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_tabview',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_tabview.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_tabview.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.ctk_textbox',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_textbox.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\ctk_textbox.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.font',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\font\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\font\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.font.ctk_font',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\font\\ctk_font.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\font\\ctk_font.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.font.font_manager',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\font\\font_manager.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\font\\font_manager.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.image',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\image\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\image\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.image.ctk_image',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\image\\ctk_image.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\image\\ctk_image.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.scaling',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\scaling\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\scaling\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.scaling.scaling_base_class',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\scaling\\scaling_base_class.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\scaling\\scaling_base_class.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.scaling.scaling_tracker',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\scaling\\scaling_tracker.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\scaling\\scaling_tracker.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.theme',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\theme\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\theme\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.theme.theme_manager',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\theme\\theme_manager.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\theme\\theme_manager.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.utility',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\utility\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\utility\\__init__.py',
    'PYMODULE'),
   ('customtkinter.windows.widgets.utility.utility_functions',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\utility\\utility_functions.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\customtkinter\\windows\\widgets\\utility\\utility_functions.py',
    'PYMODULE'),
   ('darkdetect',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\darkdetect\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\darkdetect\\__init__.py',
    'PYMODULE'),
   ('darkdetect._dummy',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\darkdetect\\_dummy.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\darkdetect\\_dummy.py',
    'PYMODULE'),
   ('darkdetect._linux_detect',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\darkdetect\\_linux_detect.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\darkdetect\\_linux_detect.py',
    'PYMODULE'),
   ('darkdetect._mac_detect',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\darkdetect\\_mac_detect.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\darkdetect\\_mac_detect.py',
    'PYMODULE'),
   ('darkdetect._windows_detect',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\darkdetect\\_windows_detect.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\darkdetect\\_windows_detect.py',
    'PYMODULE'),
   ('dataclasses',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\dataclasses.py',
@@ -502,16 +502,16 @@
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\opcode.py',
    'PYMODULE'),
   ('packaging',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\packaging\\__init__.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\packaging\\__init__.py',
    'PYMODULE'),
   ('packaging._structures',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\packaging\\_structures.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\packaging\\_structures.py',
    'PYMODULE'),
   ('packaging.version',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\packaging\\version.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\packaging\\version.py',
    'PYMODULE'),
   ('pathlib',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\pathlib\\__init__.py',
@@ -562,10 +562,10 @@
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\statistics.py',
    'PYMODULE'),
   ('stock_list',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage Calculater\\stock_list.py',
+   'D:\\Coding\\Brokerage Calculater\\App\\stock_list.py',
    'PYMODULE'),
   ('stock_loader',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage Calculater\\stock_loader.py',
+   'D:\\Coding\\Brokerage Calculater\\App\\stock_loader.py',
    'PYMODULE'),
   ('string',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\string.py',
@@ -627,9 +627,7 @@
   ('typing',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\typing.py',
    'PYMODULE'),
-  ('updater',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage Calculater\\updater.py',
-   'PYMODULE'),
+  ('updater', 'D:\\Coding\\Brokerage Calculater\\App\\updater.py', 'PYMODULE'),
   ('urllib',
    'C:\\Users\\aryan\\AppData\\Local\\Programs\\Python\\Python313\\Lib\\urllib\\__init__.py',
    'PYMODULE'),

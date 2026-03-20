@@ -4,6 +4,10 @@ Param(
 
 $ErrorActionPreference = "Stop"
 
+# Always execute from this script's folder so relative paths are stable.
+Push-Location $PSScriptRoot
+try {
+
 Write-Host "[1/4] Building app with PyInstaller (onedir)..."
 $iconPath = "assets\app_logo.ico"
 $iconArg = @()
@@ -20,6 +24,9 @@ if (-not (Test-Path $pythonExe)) {
 }
 
 & $pythonExe -m PyInstaller --noconfirm --clean --windowed --onedir --name BrokerageCalculator --collect-all customtkinter @iconArg main.py
+if ($LASTEXITCODE -ne 0) {
+    throw "PyInstaller failed with exit code $LASTEXITCODE"
+}
 
 Write-Host "[2/4] Checking Inno Setup compiler..."
 $isccCmd = Get-Command iscc -ErrorAction SilentlyContinue
@@ -47,5 +54,13 @@ if (-not $iscc) {
 
 Write-Host "[3/4] Building installer..."
 & $iscc /DMyAppVersion=$Version installer.iss
+if ($LASTEXITCODE -ne 0) {
+    throw "Inno Setup compile failed with exit code $LASTEXITCODE"
+}
 
 Write-Host "[4/4] Done. Installer output is in dist_installer/."
+
+}
+finally {
+    Pop-Location
+}

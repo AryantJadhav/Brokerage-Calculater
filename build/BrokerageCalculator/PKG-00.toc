@@ -1,5 +1,5 @@
-('D:\\Coding\\Brokerage Calculater\\Brokerage '
- 'Calculater\\build\\BrokerageCalculator\\BrokerageCalculator.pkg',
+('D:\\Coding\\Brokerage '
+ 'Calculater\\App\\build\\BrokerageCalculator\\BrokerageCalculator.pkg',
  {'BINARY': True,
   'DATA': True,
   'EXECUTABLE': True,
@@ -11,44 +11,42 @@
   'SYMLINK': False},
  [('pyi-contents-directory _internal', '', 'OPTION'),
   ('PYZ-00.pyz',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\build\\BrokerageCalculator\\PYZ-00.pyz',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\build\\BrokerageCalculator\\PYZ-00.pyz',
    'PYZ'),
   ('struct',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\build\\BrokerageCalculator\\localpycs\\struct.pyc',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\build\\BrokerageCalculator\\localpycs\\struct.pyc',
    'PYMODULE'),
   ('pyimod01_archive',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\build\\BrokerageCalculator\\localpycs\\pyimod01_archive.pyc',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\build\\BrokerageCalculator\\localpycs\\pyimod01_archive.pyc',
    'PYMODULE'),
   ('pyimod02_importers',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\build\\BrokerageCalculator\\localpycs\\pyimod02_importers.pyc',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\build\\BrokerageCalculator\\localpycs\\pyimod02_importers.pyc',
    'PYMODULE'),
   ('pyimod03_ctypes',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\build\\BrokerageCalculator\\localpycs\\pyimod03_ctypes.pyc',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\build\\BrokerageCalculator\\localpycs\\pyimod03_ctypes.pyc',
    'PYMODULE'),
   ('pyimod04_pywin32',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\build\\BrokerageCalculator\\localpycs\\pyimod04_pywin32.pyc',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\build\\BrokerageCalculator\\localpycs\\pyimod04_pywin32.pyc',
    'PYMODULE'),
   ('pyiboot01_bootstrap',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
    'PYSOURCE'),
   ('pyi_rth_inspect',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
    'PYSOURCE'),
   ('pyi_rth__tkinter',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage '
-   'Calculater\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth__tkinter.py',
+   'D:\\Coding\\Brokerage '
+   'Calculater\\App\\venv\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth__tkinter.py',
    'PYSOURCE'),
-  ('main',
-   'D:\\Coding\\Brokerage Calculater\\Brokerage Calculater\\main.py',
-   'PYSOURCE')],
+  ('main', 'D:\\Coding\\Brokerage Calculater\\App\\main.py', 'PYSOURCE')],
  'python313.dll',
  True,
  False,
