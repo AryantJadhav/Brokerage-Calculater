@@ -6,3 +6,4 @@
 # Requires Python 3.10+
 
 customtkinter>=5.2.2
+tkcalendar>=1.6.1

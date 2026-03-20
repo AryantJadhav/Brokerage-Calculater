@@ -15,6 +15,7 @@ import tkinter as tk
 import webbrowser
 from tkinter import messagebox
 from pathlib import Path
+from datetime import datetime
 
 import customtkinter as ctk
 
@@ -28,6 +29,11 @@ from app_meta import (
     GITHUB_REPO,
     INSTALLER_ASSET_KEYWORD,
 )
+
+try:
+    from tkcalendar import Calendar
+except ImportError:
+    Calendar = None
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -243,6 +249,10 @@ C_INFO_BG   = "#1e293b"   # dark blue  – info-box background
 C_SEP       = "#334155"   # dim slate  – section separator lines
 C_SECTION   = "#60a5fa"   # light blue – section heading text
 
+ANNUAL_MTF_RATE_STATIC = 18.0
+BROKERAGE_PCT_INTRADAY = 0.01
+BROKERAGE_PCT_DELIVERY = 0.1
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Application
@@ -416,17 +426,17 @@ class BrokerageCalculatorApp(ctk.CTk):
         self._left.grid(row=1, column=0, padx=(14, 7), pady=14, sticky="nsew")
         self._left.grid_columnconfigure(0, weight=0, minsize=190)
         self._left.grid_columnconfigure(1, weight=1)
+        self._left.grid_columnconfigure(2, weight=0)
 
         self.entries: dict[str, ctk.CTkEntry] = {}
 
         # (label, placeholder_text)
         field_defs = [
             ("Stock / Scrip Name",    "e.g. RELIANCE"),
-            ("Buy Date (YYYY-MM-DD)", "e.g. 2024-09-01"),
+            ("Buy Date (DD-MM-YYYY)", "e.g. 01-09-2024"),
             ("Buy Price (\u20b9)",       "e.g. 2500.00"),
             ("Quantity (Shares)",     "e.g. 100"),
             ("Own Capital Used (\u20b9)", "e.g. 50000.00"),
-            ("Annual MTF Rate (%)",   "e.g. 18.00"),
         ]
 
         for row_idx, (label_text, placeholder) in enumerate(field_defs):
@@ -456,67 +466,98 @@ class BrokerageCalculatorApp(ctk.CTk):
             entry.grid(row=row_idx, column=1, padx=(0, 12), pady=(12, 0), sticky="ew")
             self.entries[label_text] = entry
 
-        # ── Brokerage type (radio buttons) ────────────────────────────────────
-        br_type_row = len(field_defs)
+            if label_text == "Buy Date (DD-MM-YYYY)":
+                self._date_picker_btn = ctk.CTkButton(
+                    self._left,
+                    text="📅",
+                    width=36,
+                    height=36,
+                    font=ctk.CTkFont(size=14),
+                    fg_color="#334155",
+                    hover_color="#475569",
+                    command=self._open_date_picker,
+                )
+                self._date_picker_btn.grid(row=row_idx, column=2, padx=(0, 10), pady=(12, 0), sticky="w")
+
+        # ── Funding mode selector (MTF vs Cash buy) ─────────────────────────
+        funding_row = len(field_defs)
 
         ctk.CTkLabel(
             self._left,
-            text="Brokerage Type",
+            text="Funding Mode",
             font=ctk.CTkFont(size=12),
             text_color=C_MUTED,
             anchor="w",
-        ).grid(row=br_type_row, column=0, padx=(12, 8), pady=(16, 0), sticky="w")
+        ).grid(row=funding_row, column=0, padx=(12, 8), pady=(16, 0), sticky="w")
+
+        funding_frame = ctk.CTkFrame(self._left, fg_color="transparent")
+        funding_frame.grid(row=funding_row, column=1, padx=(0, 12), pady=(16, 0), sticky="w")
+
+        self._funding_mode = ctk.StringVar(value="mtf")
+
+        ctk.CTkRadioButton(
+            funding_frame,
+            text="MTF Buy",
+            variable=self._funding_mode,
+            value="mtf",
+            command=self._on_funding_mode_change,
+            font=ctk.CTkFont(size=13),
+        ).pack(side="left", padx=(0, 20))
+
+        ctk.CTkRadioButton(
+            funding_frame,
+            text="Cash Buy (No MTF)",
+            variable=self._funding_mode,
+            value="cash",
+            command=self._on_funding_mode_change,
+            font=ctk.CTkFont(size=13),
+        ).pack(side="left")
+
+        # ── Trade type selector (controls fixed brokerage %) ─────────────────
+        trade_type_row = funding_row + 1
+
+        ctk.CTkLabel(
+            self._left,
+            text="Trade Type",
+            font=ctk.CTkFont(size=12),
+            text_color=C_MUTED,
+            anchor="w",
+        ).grid(row=trade_type_row, column=0, padx=(12, 8), pady=(16, 0), sticky="w")
 
         radio_frame = ctk.CTkFrame(self._left, fg_color="transparent")
-        radio_frame.grid(row=br_type_row, column=1, padx=(0, 12), pady=(16, 0), sticky="w")
+        radio_frame.grid(row=trade_type_row, column=1, padx=(0, 12), pady=(16, 0), sticky="w")
 
-        self._brokerage_type = ctk.StringVar(value="flat")
+        self._trade_type = ctk.StringVar(value="delivery")
 
         ctk.CTkRadioButton(
             radio_frame,
-            text="Flat \u20b9",
-            variable=self._brokerage_type,
-            value="flat",
-            command=self._on_brokerage_type_change,
+            text="Intraday  (0.01%)",
+            variable=self._trade_type,
+            value="intraday",
             font=ctk.CTkFont(size=13),
         ).pack(side="left", padx=(0, 20))
 
         ctk.CTkRadioButton(
             radio_frame,
-            text="Percentage %",
-            variable=self._brokerage_type,
-            value="pct",
-            command=self._on_brokerage_type_change,
+            text="Delivery  (0.1%)",
+            variable=self._trade_type,
+            value="delivery",
             font=ctk.CTkFont(size=13),
         ).pack(side="left")
 
-        # ── Brokerage value entry ─────────────────────────────────────────────
-        br_val_row = br_type_row + 1
-
-        self._brokerage_lbl = ctk.CTkLabel(
+        ctk.CTkLabel(
             self._left,
-            text="Brokerage Amount (\u20b9)",
-            font=ctk.CTkFont(size=12),
-            text_color=C_MUTED,
+            text="MTF Rate is fixed at 18% annually",
+            font=ctk.CTkFont(size=11),
+            text_color="#93c5fd",
             anchor="w",
-        )
-        self._brokerage_lbl.grid(
-            row=br_val_row, column=0, padx=(12, 8), pady=(12, 0), sticky="w"
-        )
+        ).grid(row=trade_type_row + 1, column=0, columnspan=2, padx=(12, 8), pady=(8, 0), sticky="w")
 
-        self._brokerage_entry = ctk.CTkEntry(
-            self._left,
-            placeholder_text="e.g. 20",
-            height=36,
-            font=ctk.CTkFont(size=13),
-        )
-        self._brokerage_entry.insert(0, "20")   # sensible default (Zerodha-style flat ₹20)
-        self._brokerage_entry.grid(
-            row=br_val_row, column=1, padx=(0, 12), pady=(12, 0), sticky="ew"
-        )
+        # Initial state of Own Capital field depends on funding mode
+        self._on_funding_mode_change()
 
         # ── Action buttons ────────────────────────────────────────────────────
-        btn_row = br_val_row + 1
+        btn_row = trade_type_row + 2
         btn_frame = ctk.CTkFrame(self._left, fg_color="transparent")
         btn_frame.grid(row=btn_row, column=0, columnspan=2, pady=(24, 10))
 
@@ -552,6 +593,8 @@ class BrokerageCalculatorApp(ctk.CTk):
             " \u2022 GST                18 %     on brokerage + exchange\n"
             " \u2022 Stamp Duty         0.015 %  on buy value only\n"
             " \u2022 SEBI Fee           \u20b910 per crore of turnover\n"
+            " \u2022 Brokerage         Intraday: 0.01 %  |  Delivery: 0.1 %\n"
+            " \u2022 MTF Rate          18 %  (fixed)\n"
             "\n"
             " Rates are indicative. Verify with your broker / NSE schedule."
         )
@@ -708,47 +751,146 @@ class BrokerageCalculatorApp(ctk.CTk):
     #  Event Handlers
     # ──────────────────────────────────────────────────────────────────────────
 
-    def _on_brokerage_type_change(self) -> None:
-        """Toggle label and placeholder to match the selected brokerage type."""
-        if self._brokerage_type.get() == "flat":
-            self._brokerage_lbl.configure(text="Brokerage Amount (\u20b9)")
-            self._brokerage_entry.configure(placeholder_text="e.g. 20")
+    def _get_selected_brokerage_pct(self) -> float:
+        """Return brokerage percentage based on selected trade type."""
+        return (
+            BROKERAGE_PCT_INTRADAY
+            if self._trade_type.get() == "intraday"
+            else BROKERAGE_PCT_DELIVERY
+        )
+
+    def _on_funding_mode_change(self) -> None:
+        """Toggle MTF-only inputs based on selected funding mode."""
+        own_cap_entry = self.entries.get("Own Capital Used (\u20b9)")
+        buy_date_entry = self.entries.get("Buy Date (DD-MM-YYYY)")
+        if not own_cap_entry or not buy_date_entry:
+            return
+
+        if self._funding_mode.get() == "cash":
+            own_cap_entry.configure(state="normal")
+            own_cap_entry.delete(0, "end")
+            own_cap_entry.insert(0, "Auto (full own funds)")
+            own_cap_entry.configure(state="disabled")
+
+            # Buy date is not required for Cash Buy. Keep it auto-filled to today.
+            buy_date_entry.configure(state="normal")
+            buy_date_entry.delete(0, "end")
+            buy_date_entry.insert(0, datetime.today().strftime("%d-%m-%Y"))
+            buy_date_entry.configure(state="disabled")
+            if hasattr(self, "_date_picker_btn"):
+                self._date_picker_btn.configure(state="disabled")
         else:
-            self._brokerage_lbl.configure(text="Brokerage Rate (%)")
-            self._brokerage_entry.configure(placeholder_text="e.g. 0.05")
+            own_cap_entry.configure(state="normal")
+            if own_cap_entry.get().strip() == "Auto (full own funds)":
+                own_cap_entry.delete(0, "end")
+
+            buy_date_entry.configure(state="normal")
+            if hasattr(self, "_date_picker_btn"):
+                self._date_picker_btn.configure(state="normal")
+
+    def _open_date_picker(self) -> None:
+        """Open a calendar popup and write selected date in DD-MM-YYYY format."""
+        if Calendar is None:
+            messagebox.showinfo(
+                "Calendar Not Installed",
+                "Date picker requires 'tkcalendar'.\n\n"
+                "Install it with:\n"
+                "pip install tkcalendar",
+                parent=self,
+            )
+            return
+
+        entry = self.entries["Buy Date (DD-MM-YYYY)"]
+        current_text = entry.get().strip()
+        initial_date = None
+        if current_text:
+            try:
+                initial_date = datetime.strptime(current_text, "%d-%m-%Y").date()
+            except ValueError:
+                initial_date = None
+
+        popup = ctk.CTkToplevel(self)
+        popup.title("Select Buy Date")
+        popup.geometry("300x320")
+        popup.resizable(False, False)
+        popup.transient(self)
+        popup.grab_set()
+
+        cal = Calendar(
+            popup,
+            selectmode="day",
+            date_pattern="dd-mm-yyyy",
+        )
+        cal.pack(fill="both", expand=True, padx=10, pady=10)
+
+        if initial_date is not None:
+            try:
+                cal.selection_set(initial_date)
+            except Exception:
+                pass
+
+        btn_row = ctk.CTkFrame(popup, fg_color="transparent")
+        btn_row.pack(fill="x", padx=10, pady=(0, 10))
+
+        def _apply_date() -> None:
+            entry.delete(0, "end")
+            entry.insert(0, cal.get_date())
+            popup.destroy()
+
+        ctk.CTkButton(
+            btn_row,
+            text="Select",
+            width=100,
+            command=_apply_date,
+        ).pack(side="left", padx=(0, 8))
+
+        ctk.CTkButton(
+            btn_row,
+            text="Cancel",
+            width=100,
+            fg_color="#374151",
+            hover_color="#4b5563",
+            command=popup.destroy,
+        ).pack(side="left")
 
     def _on_calculate(self) -> None:
         """Read inputs, validate, run calculations, and populate the results panel."""
         # ── Parse inputs ──────────────────────────────────────────────────────
+        is_mtf = self._funding_mode.get() == "mtf"
+
         try:
             stock_name    = (
                 self.entries["Stock / Scrip Name"].get().strip() or "N/A"
             )
-            buy_date_str  = self.entries["Buy Date (YYYY-MM-DD)"].get().strip()
+            if is_mtf:
+                buy_date_str = self.entries["Buy Date (DD-MM-YYYY)"].get().strip()
+            else:
+                buy_date_str = datetime.today().strftime("%d-%m-%Y")
             buy_price     = float(self.entries["Buy Price (\u20b9)"].get().strip())
             # Accept "100.0" as well as "100" for quantity
             quantity      = int(
                 float(self.entries["Quantity (Shares)"].get().strip())
             )
-            own_capital   = float(
-                self.entries["Own Capital Used (\u20b9)"].get().strip()
-            )
-            annual_rate   = float(
-                self.entries["Annual MTF Rate (%)"].get().strip()
-            )
-            brokerage_val = float(self._brokerage_entry.get().strip())
-            is_pct        = self._brokerage_type.get() == "pct"
+            if is_mtf:
+                own_capital = float(
+                    self.entries["Own Capital Used (\u20b9)"].get().strip()
+                )
+                annual_rate = ANNUAL_MTF_RATE_STATIC
+            else:
+                own_capital = buy_price * quantity
+                annual_rate = 0.0
+            brokerage_val = self._get_selected_brokerage_pct()
+            is_pct        = True
 
         except ValueError:
+            own_cap_line = "  \u2022 Own Capital Used\n" if is_mtf else ""
             messagebox.showerror(
                 "Input Error",
                 "One or more numeric fields contain invalid values.\n\n"
                 "Please check:\n"
                 "  \u2022 Buy Price\n"
                 "  \u2022 Quantity\n"
-                "  \u2022 Own Capital Used\n"
-                "  \u2022 Annual MTF Rate\n"
-                "  \u2022 Brokerage Amount / Rate",
+                f"{own_cap_line}",
                 parent=self,
             )
             return
@@ -769,18 +911,19 @@ class BrokerageCalculatorApp(ctk.CTk):
             messagebox.showerror("Calculation Error", str(exc), parent=self)
             return
 
+        result["is_mtf"] = is_mtf
+
         self._populate_results(result)
 
     def _on_clear(self) -> None:
         """Reset all input fields and result labels to their defaults."""
         for entry in self.entries.values():
+            entry.configure(state="normal")
             entry.delete(0, "end")
 
-        self._brokerage_entry.delete(0, "end")
-        self._brokerage_entry.insert(0, "20")
-
-        self._brokerage_type.set("flat")
-        self._on_brokerage_type_change()
+        self._funding_mode.set("mtf")
+        self._on_funding_mode_change()
+        self._trade_type.set("delivery")
 
         for var in self._rvars.values():
             var.set("\u2014")
@@ -819,7 +962,10 @@ class BrokerageCalculatorApp(ctk.CTk):
         self._rvars["buy_total"].set(inr(bc["total"]))
 
         # MTF interest
-        self._rvars["mtf_interest"].set(inr(r["mtf_interest"]))
+        if r.get("is_mtf", True):
+            self._rvars["mtf_interest"].set(inr(r["mtf_interest"]))
+        else:
+            self._rvars["mtf_interest"].set("Not Applicable (Cash Buy)")
 
         # Sell-side charges
         sc = r["sell_charges"]

@@ -39,16 +39,16 @@ SEBI_RATE            = 0.000001     # ₹10 / crore  ≈  0.0001 %
 
 def parse_buy_date(date_str: str) -> date:
     """
-    Parse a 'YYYY-MM-DD' string into a date object.
+    Parse a 'DD-MM-YYYY' string into a date object.
 
     Raises:
         ValueError – on invalid format or if the date is in the future.
     """
     try:
-        buy_date = datetime.strptime(date_str.strip(), "%Y-%m-%d").date()
+        buy_date = datetime.strptime(date_str.strip(), "%d-%m-%Y").date()
     except ValueError:
         raise ValueError(
-            f"Invalid date '{date_str}'. Use the format YYYY-MM-DD  (e.g. 2024-09-01)."
+            f"Invalid date '{date_str}'. Use the format DD-MM-YYYY  (e.g. 01-09-2024)."
         )
 
     if buy_date > date.today():
@@ -266,8 +266,8 @@ def run_full_calculation(
     return {
         # ── Meta ──────────────────────────────────────────────────────────────
         "stock_name":        stock_name,
-        "buy_date":          buy_date.isoformat(),
-        "today":             date.today().isoformat(),
+        "buy_date":          buy_date.strftime("%d-%m-%Y"),
+        "today":             date.today().strftime("%d-%m-%Y"),
         "holding_days":      holding_days,
         # ── Trade ─────────────────────────────────────────────────────────────
         "buy_price":         round(buy_price, 2),
