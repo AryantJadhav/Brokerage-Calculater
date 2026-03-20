@@ -2,7 +2,7 @@
 
 APP_NAME = "Brokerage Calculator"
 APP_EXE_NAME = "BrokerageCalculator"
-APP_VERSION = "1.0.0"
+APP_VERSION = "1.0.1"
 
 # Configure these to enable in-app update checks via GitHub Releases API.
 # Example:
