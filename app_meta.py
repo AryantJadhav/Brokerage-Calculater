@@ -8,8 +8,8 @@ APP_VERSION = "1.0.0"
 # Example:
 #   GITHUB_OWNER = "your-org-or-username"
 #   GITHUB_REPO = "brokerage-calculator"
-GITHUB_OWNER = ""
-GITHUB_REPO = ""
+GITHUB_OWNER = "AryantJadhav"
+GITHUB_REPO = "Brokerage-Calculater"
 
 # Optional keyword used to pick the right downloadable installer asset.
 # Keep this aligned with your setup filename from Inno Setup.

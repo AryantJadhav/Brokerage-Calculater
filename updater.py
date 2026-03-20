@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import urllib.error
 import urllib.request
 from dataclasses import dataclass
 
@@ -72,6 +73,22 @@ def check_for_update(
     try:
         with urllib.request.urlopen(req, timeout=timeout) as response:
             payload = json.loads(response.read().decode("utf-8"))
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            return UpdateCheckResult(
+                ok=False,
+                update_available=False,
+                error=(
+                    "No public GitHub release found yet. "
+                    "Publish a release in this repo (or make the repo public) "
+                    "to enable customer updates."
+                ),
+            )
+        return UpdateCheckResult(
+            ok=False,
+            update_available=False,
+            error=f"Update check failed: HTTP {exc.code}",
+        )
     except Exception as exc:  # network/http/parse issues
         return UpdateCheckResult(
             ok=False,

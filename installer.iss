@@ -5,7 +5,7 @@
 #define MyAppName "Brokerage Calculator"
 #define MyAppExeName "BrokerageCalculator.exe"
 #define MyAppPublisher "Your Company"
-#define MyAppURL "https://github.com/your-org/your-repo"
+#define MyAppURL "https://github.com/AryantJadhav/Brokerage-Calculater"
 ; You can override version from command line:
 ;   iscc /DMyAppVersion=1.0.1 installer.iss
 #define MySetupIconFile "assets\\app_logo.ico"
